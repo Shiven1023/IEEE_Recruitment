@@ -14,5 +14,5 @@ print("Normalized Matrix: \n",normalized_arr)
 # Flatten to 1D array and sort
 flattened_arr = normalized_arr.reshape(-1)
 sorted_arr = np.sort(flattened_arr)
-print("Flattened Matrix: \n",flattened_arr)
-print("sorted Matrix: \n",sorted_arr)
+print("Flattened Matrix: ",flattened_arr)
+print("sorted Matrix: ",sorted_arr)
