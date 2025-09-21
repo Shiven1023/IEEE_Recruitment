@@ -1,0 +1,72 @@
+﻿[Q1] But we dont use it here why? Why is it an array of 10 elements?
+--> Since one hot encoding requires a one-hot vector(i.e 10 elements for 10 categories)
+--> Cross entropy loss expects probabilities (not class indices).
+
+[Q2] Why convert to numpy array?
+--> More memory efficient than python lists.
+--> Allows for vectorisation.
+
+[Q3] Why are we doing this and what does this type of slicing result in?
+ --> This results in us getting only the zeroeth index or first channel,i.e it discards colour and keeps grayscale intensity 
+
+[Q4] Why are we reshaping the data?
+—>Reshaping flattens images into vectors suitable for feeding into neural networks.
+—> 28*28 pixels —> 784 features
+
+[Q5] What is the learning rate?
+—> It dictates the rate at which the weights and biases of the algorithm are updated.
+—> If too small it would requires a large number of epochs to update by an appreciable amount and if too large it could cause the algorithm to overshoot the minima.
+
+[Q6] Why are the dimensions of the weights and biases the way they are?
+—>The dimensions of the weights and biases are in this manner so as to allow for proper metric multiplication.
+Eg for wih (weight input hidden) shape is of the form (hidden neurons, input neurons)
+
+
+[Q7] What is broadcasting and why do we need to broadcast the bias?
+—> Broadcasting means expanding smaller arrays into larger arrays to match the batches.
+—>Bias vector is broadcasted to each individual sample , this prevents manual replication.
+
+[Q8] What is np.random.randn? What's the shape of this matrix?
+—>It generates a sample from standard normal distribution(mean = 0 , standard deviation = 1)
+—>The matrix shape is (hidden neuron,input neuron).
+
+[Q9] What are activation functions and why do we need them?
+—> They tell how much a neutron of a model “lights up”. They also bring non-linearity into the ML Model. 
+—> Eg sigmoid, ReLU, softmax,etc.
+
+[Q10] What is the softmax function and why do we need it?
+—> it converts the outputs(weight*x + bias) into a probability distribution over the classes(summing up to 1).
+—> Useful for classification tasks.
+
+[Q11] What are loss functions and why do we need them?
+—> It is a measure of how far our predicted outputs are from the actual labels.
+—> It acts as a way to reduce error by making the model try to reduce this loss function.
+
+[Q12] What does the output here mean? It’s an array of 10 elements per image, why?
+—> The 10 elements represent the probabilities of the input images being among the 10 classes.
+
+[Q13] Why are we subtracting the mean of the inputs?
+—> This is referred to as mean centering, it increases the stability of the algorithm and also increases the speed of its convergence(speed of gradient descent).
+
+ [Q14] Why are we using the softmax function here?
+—> We are using the softmax function here to convert our raw outputs in the hidden layer intro probabilities(0-1).
+
+[Q15] Why are we doing a forward pass here instead of just using the outputs from the forward function?
+—> We recompute forward pass again in the backpropogation as we need intermediate values(like hidden_input,hidden_output) and not just the final output.
+
+[Q16] What is the validation dataset and what do we mean by generalization?
+—>Validation dataset:    It is a dataset separate from the training set, used to check the model’s performance on unseen data.
+—>Generalisation:It is the measure of a model’a ability to perform well on unseen data.
+
+[Q17] What are the parameters in the model and what do they mean?
+—>The parameters are (number of input layer neutrons(fixed—>28*28 =784 ),number of hidden layer neurons, number of output layer neurons(fixed , one for each fashion class),learning rate, epochs)
+
+
+
+
+
+
+
+
+
+
